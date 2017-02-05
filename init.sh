@@ -1,23 +1,10 @@
 #!/bin/bash -ex
 
+trap "pkill ffserver; pkill ffmpeg; pkill nodejs;" SIGINT INT EXIT
+
 DISPLAY=":0"
-SCREENSHOT=screen.png
 
-# Take a screenshot
-function take_screenshot { 
-    DISPLAY=$DISPLAY scrot $SCREENSHOT 
-}
 
-# Start HTTP Server
-function start_http_server {
-    python -m SimpleHTTPServer &
-}
-
-start_http_server
-
-while true; do
-    sleep 0.5
-    take_screenshot
-done
-
-trap "pkill python" SIGINT INT EXIT
+ffserver &
+./ffmpeg.sh &
+nodejs cast-screen.js

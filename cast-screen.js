@@ -2,10 +2,6 @@ var ChromecastAPI = require('chromecast-api')
 
 var browser = new ChromecastAPI.Browser()
 
-var urlMedia = { url : 'http://192.168.0.11:8000/screen.png'
-               , contentType: 'image/png'
-               }
-
 var urlMedia = { url : 'http://192.168.0.11:8090/rpi.webm'
                , contentType: 'video/webm'
                , streamType: 'LIVE'
