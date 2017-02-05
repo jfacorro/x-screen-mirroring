@@ -6,12 +6,15 @@ var urlMedia = { url : 'http://192.168.0.11:8000/screen.png'
                , contentType: 'image/png'
                }
 
+var urlMedia = { url : 'http://192.168.0.11:8090/rpi.webm'
+               , contentType: 'video/webm'
+               }
 var update = function(device) {
     device.play(urlMedia, 0, function () {
         console.log('Playing in your chromecast')
 
         device.getStatus(function(err, status) { console.log(status) })
-        setTimeout(function() { update(device); }, 1000)
+        // setTimeout(function() { update(device); }, 1000)
     })
 }
 
