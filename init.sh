@@ -1,6 +1,6 @@
 #!/bin/bash -ex
 
-trap "pkill ffserver; pkill ffmpeg; pkill nodejs;" SIGINT INT EXIT
+# trap "pkill ffserver; pkill ffmpeg; pkill nodejs;" SIGINT INT EXIT
 
 DISPLAY=":0"
 
@@ -10,4 +10,4 @@ mkdir -p log
 # ./startx.sh &
 ffserver &> ./log/ffserver.log &
 ./ffmpeg.sh &> ./log/ffmpeg.log &
-nodejs cast-screen.js &> ./log/node.log
+# nodejs cast-screen.js &> ./log/node.log
